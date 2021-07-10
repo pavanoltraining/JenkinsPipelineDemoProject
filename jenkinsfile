@@ -1,36 +1,46 @@
-pipeline{
-agent any
-tools {
-        maven 'apache-maven-3.0.1' 
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.3.9'
+//        maven 'apache-maven-3.0.1'
     }
-stages 
-{
-stage('Build') 
-{
-steps{
-echo "Building the Code.........."
- sh "mvn clean"
-}
-}
-stage('Test') 
-{
-steps{
-echo "Testing the Code.........."
- sh "mvn test"
-}
-}
-stage('Compile') 
-{
-steps{
-echo "Compiling the Project.........."
- sh "mvn compile"
-}
-}
-stage('Deploy') 
-{
-steps{
-echo "Deploying the Project.........."
-}
-}
-}
+    stages
+            {
+                stage('Initialize') {
+                    steps {
+                        sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                            '''
+                    }
+                }
+
+                stage('Build')
+                        {
+                            steps {
+                                echo "Building the Code.........."
+                                sh "mvn clean"
+                            }
+                        }
+                stage('Test')
+                        {
+                            steps {
+                                echo "Testing the Code.........."
+                                sh "mvn test"
+                            }
+                        }
+                stage('Compile')
+                        {
+                            steps {
+                                echo "Compiling the Project.........."
+                                sh "mvn compile"
+                            }
+                        }
+                stage('Deploy')
+                        {
+                            steps {
+                                echo "Deploying the Project.........."
+                            }
+                        }
+            }
 }
