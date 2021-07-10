@@ -1,7 +1,10 @@
 pipeline {
     agent any
+    environment {
+        PATH = "/usr/share/maven/bin:$PATH"
+    }
     tools {
-        maven 'Maven 3.3.9'
+//        maven 'Maven 3.3.9'
 //        maven 'apache-maven-3.0.1'
     }
     stages
