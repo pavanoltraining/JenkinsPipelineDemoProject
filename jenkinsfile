@@ -3,15 +3,16 @@ pipeline {
     environment {
         PATH = "/usr/share/maven/bin:$PATH"
     }
-    tools {
+//    tools {
 //        maven 'Maven 3.3.9'
 //        maven 'apache-maven-3.0.1'
-    }
+//    }
     stages
             {
                 stage('Initialize') {
                     steps {
                         sh '''
+                    export M2_HOME=/usr/share/maven
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                             '''
