@@ -5,6 +5,7 @@
     <classes>
       <class name="testCases.Test1"/>
       <class name="testCases.Test2"/>
-    </classes>
+      <class name="testCases.ArrayListClass"/>
+         </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
